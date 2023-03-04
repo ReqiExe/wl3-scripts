@@ -1,0 +1,710 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Wolfes life 3 script created by Reqi#8510 | discord.gg/5w8fBu4XUx",
+   LoadingTitle = "Wolf's life 3 script by Reqi#8510 | discord.gg/5w8fBu4XUx",
+   LoadingSubtitle = "by Reqi#8510",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Wolfes life 3 script"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "5w8fBu4XUx", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD.
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Key checkpoint",
+      Subtitle = "Key System",
+      Note = "Join the discord (discord.gg/5w8fBu4XUx)",
+      FileName = "Wl3 key",
+      SaveKey = false,
+      GrabKeyFromSite = false, 
+      Key = "w"
+   }
+})
+local Tab = Window:CreateTab("Main", 4483362458) 
+local Section = Tab:CreateSection("Main features")
+local Button = Tab:CreateButton({
+    Name = "Server Crash",
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/ReqiExe/wl3-scripts/main/Crash"),true))()
+    end,
+ })
+local Slider = Tab:CreateSlider({
+   Name = "Speed Slider",
+   Range = {0, 1000},
+   Increment = 10,
+   Suffix = "Speed",
+   CurrentValue = 10,
+   Flag = "Slider1", 
+   Callback = function(Value)
+    local Cum = game.Players.LocalPlayer
+      local string1 = tostring(Cum)
+    game:GetService("Workspace")[string1].Humanoid.WalkSpeed = Value
+   end,
+})
+
+local Slider = Tab:CreateSlider({
+   Name = "Paw coins",
+   Range = {0, 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999},
+   Increment = 9999999999999999999,
+   Suffix = "Paw coins",
+   CurrentValue = 10,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      local args = {
+         [1] = "Coins",
+         [2] = Value,
+         [3] = "\226\135\154\225\155\157i\220\176\219\173\230\155\157u"
+     }
+     
+     game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+     local args = {
+      [1] = "CallSave"
+  }
+  
+  game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))       
+   end,
+})
+local Convert = game.Players.LocalPlayer
+local stringconvert = tostring(Convert)
+
+local Toggle = Tab:CreateToggle({
+   Name = "Drunk",
+   CurrentValue = false,
+   Flag = "Toggle1", 
+   Callback = function(Value)
+game:GetService("Workspace")[stringconvert].Humanoid.Sit = Value
+   end,
+})
+local Tab = Window:CreateTab("Target",4483362458)
+local Input = Tab:CreateInput({
+   Name = "Voiding",
+   PlaceholderText = "Username",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+      Target = Text
+
+
+      local Convert = game.Players.LocalPlayer
+      local stringconvert = tostring(Convert)
+      
+      -- local shit
+      local Pickup = game:GetService("ReplicatedStorage").CarryNewborn
+      local gettargetpos = game:GetService("Workspace")[Target].HumanoidRootPart
+      local getyourpos = game:GetService("Workspace")[stringconvert].HumanoidRootPart
+      function spampickup()
+      Pickup:FireServer(game:GetService("Players").LocalPlayer)
+      end
+      for looppickup = 15, 0, -1 do
+          spampickup()
+          end
+      wait(0.1)
+      local offsetCframe = CFrame.new()
+      for loopingcframetp = 15, 0, -1 do
+      getyourpos.CFrame = gettargetpos.CFrame:ToWorldSpace(offsetCframe)
+      wait(0.03)
+      end
+      wait(0.3)
+      game:GetService("Workspace")[stringconvert].HumanoidRootPart.CFrame = CFrame.new(1111111, 1000, 0)
+      wait(1)
+      function spamkick()
+      game:GetService("ReplicatedStorage").CarryNewborn:FireServer("Kick Eggs")
+      end
+      for loopspamkick = 15, 0 , -1 do
+          spamkick()
+      end
+      wait(1)
+      game:GetService("ReplicatedStorage").MasterKey:FireServer("Spawn","Adoption")
+   end,
+})
+
+local Button = Tab:CreateButton({
+    Name = "Fling",
+    Callback = function()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Syntaxx64/HomebrewAdmin/master/Main"))()
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Anti Minil",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      _G.stopex = Value
+      while _G.stopex do
+         if game.Players:FindFirstChild("AdespasitoAd") == nil then 
+           print("whore hasn't joined")
+           wait(1)
+       else
+           loadstring(game:HttpGet(("https://raw.githubusercontent.com/ReqiExe/wl3-scripts/main/Crash"),true))()
+       end
+       end
+   end,
+})
+local Tab = Window:CreateTab("Admin scripts", 4483362458)
+
+local Button = Tab:CreateButton({
+   Name = "IV Admin (Doesn't work right now)",
+   Callback = function()
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/BloodyBurns/Hexx/main/Iv%20Admin/Admin.lua'))()
+  end,
+})
+local Button = Tab:CreateButton({
+   Name = "Fates Admin",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+  end,
+})
+local Button = Tab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  end,
+})
+local Button = Tab:CreateButton({
+   Name = "CMD-X",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+  end,
+})
+local Button = Tab:CreateButton({
+   Name = "Open Gui(Fly Script)",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastebin.com/raw/UXmbai5q", true))()
+  end,
+})
+local Section = Tab:CreateSection("Spy script")
+local Button = Tab:CreateButton({
+   Name = "Chat Spy",
+   Callback = function()
+      enabled = true
+      spyOnMyself = true
+      public = false
+      publicItalics = true
+      privateProperties = {
+          Color = Color3.fromRGB(0,255,255); 
+          Font = Enum.Font.SourceSansBold;
+          TextSize = 18;
+      }
+      local StarterGui = game:GetService("StarterGui")
+      local Players = game:GetService("Players")
+      local player = Players.LocalPlayer
+      local saymsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest")
+      local getmsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("OnMessageDoneFiltering")
+      local instance = (_G.chatSpyInstance or 0) + 1
+      _G.chatSpyInstance = instance
+       
+      local function onChatted(p,msg)
+          if _G.chatSpyInstance == instance then
+              if p==player and msg:lower():sub(1,4)=="/spy" then
+                  enabled = not enabled
+                  wait(0.3)
+                  privateProperties.Text = "{SPY "..(enabled and "EN" or "DIS").."ABLED}"
+                  StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+              elseif enabled and (spyOnMyself==true or p~=player) then
+                  msg = msg:gsub("[\n\r]",''):gsub("\t",' '):gsub("[ ]+",' ')
+                  local hidden = true
+                  local conn = getmsg.OnClientEvent:Connect(function(packet,channel)
+                      if packet.SpeakerUserId==p.UserId and packet.Message==msg:sub(#msg-#packet.Message+1) and (channel=="All" or (channel=="Team" and public==false and Players[packet.FromSpeaker].Team==player.Team)) then
+                          hidden = false
+                      end
+                  end)
+                  wait(1)
+                  conn:Disconnect()
+                  if hidden and enabled then
+                      if public then
+                          saymsg:FireServer((publicItalics and "/me " or '').."{SPY} [".. p.Name .."]: "..msg,"All")
+                      else
+                          privateProperties.Text = "{SPY} [".. p.Name .."]: "..msg
+                          StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+                      end
+                  end
+              end
+          end
+      end
+       
+      for _,p in ipairs(Players:GetPlayers()) do
+          p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+      end
+      Players.PlayerAdded:Connect(function(p)
+          p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+      end)
+      privateProperties.Text = "{SPY "..(enabled and "EN" or "DIS").."ABLED}"
+      StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+      local chatFrame = player.PlayerGui.Chat.Frame
+      chatFrame.ChatChannelParentFrame.Visible = true
+      chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
+  end,
+})
+local Tab = Window:CreateTab("Oc stuff", 4483362458)
+local Toggle = Tab:CreateToggle({
+   Name = "Fade wings",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+
+      _G.stopex = Value
+
+      local MS = game:service('ReplicatedStorage').MasterKey
+      local spd = 6
+      while _G.stopex do
+      for i =  0,1,0.001*spd do
+      dickfadeing = Color3.fromHSV(i, 1, 1)
+      local args = {
+          [1] = "DragonPrimary",
+          [2] = dickfadeing,
+          [3] = "Advanced"
+      }
+      MS:FireServer(unpack(args))
+      wait()
+          end
+      end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Rainbow Wings",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+      _G.stopex = Value
+
+      local MS = game:service('ReplicatedStorage').MasterKey
+      local spd = 6
+      while _G.stopex do
+      for i =  0,1,0.001*spd do
+      dickfadeing = Color3.fromHSV(i, 1, 1)
+      local args = {
+          [1] = "DragonPrimary",
+          [2] = dickfadeing,
+          [3] = "Advanced"
+      }
+      MS:FireServer(unpack(args))
+      wait()
+          end
+      end
+         
+   end,
+})
+local Disco = {[1] = "DragonPrimary",[2] = "OceanPrimary",[3] = "BackFluff",[4] = "TailFluff",[5] = "LeftWingStart",[6] = "LeftWing2",[7] = "LeftWing3",[8] = "RightWingStart",[9] = "RightWing2",[10] = "RightWing3",[11] = "EyeLid",[12] = "Torso",[13] = "Tail1",[14] = "Tail2",[15] = "Tail3",[16] = "Tail5",[17] = "Tail6",[18] = "RightThigh",[19] = "RightEar",[20] = "EyeLid",[21] = "Head",[22] = "Hip",[23] = "LeftEar",[24] = "LeftThigh",[25] = "Muzzle",[26] = "Neck",[27] = "NeckReal"}
+local Disco2 = {[1] = "DragonSecondary",[2] = "OceanSecondary",[3] = "ChubbyCheeks",[4] = "Fat",[5] = "EarFluff",[6] = "JawFluff",[7] = "ChestFluff",[8] = "LegFluff",[9] = "Eyebrow1",[10] = "Eyebrow2",[11] = "Secondary",[12] = "Jaw",[13] = "RightShoulder",[14] = "RightLowerLeg",[15] = "RightLowerArm",[16] = "RightLeg",[17] = "RightFootPaw",[18] = "LeftArm",[19] = "LeftArmPaw",[20] = "LeftCarpal",[21] = "LeftFootPaw",[22] = "LeftLeg",[23] = "LeftLowerArm",[24] = "LeftLowerLeg",[25] = "LeftShoulder",[26] = "RightArm",[27] = "RightArmPaw",[28] = "RightCarpal"}
+local Disco3 = {[1] = "AccessoryMaterial", [3] = "FeetF"}
+local Disco4 = {[1] = "AccessoryMaterial",[2] = "TorsoF"}
+local Disco5 = {[1] = "AccessoryMaterial",[2] = "HairF"}
+local Toggle = Tab:CreateToggle({
+   Name = "Disco ball",
+   CurrentValue = false,
+   Flag = "Toggle1", 
+   Callback = function(Value)
+      _G.stopex = Value
+      local MS = game:GetService('ReplicatedStorage').MasterKey
+      local spd = 6
+      while _G.stopex do
+      for i =  0,1,0.001*spd do
+      dickfadeing = Color3.fromHSV(i, 1, 1)
+         local args = {
+            [1] = "customize",
+            [2] = Disco,
+            [3] = dickfadeing,
+            [4] = "Body"
+        }
+        local moreargs = {
+         [1] = "customize",
+         [2] = Disco2,
+         [3] = dickfadeing,
+         [4] = "Body"
+     }
+     local evenmoreargs = {
+      [1] = "DragonThird",
+      [2] = dickfadeing,
+      [3] = "Advanced"
+  }
+  local args2 = {
+   [1] = "customize",
+   [2] = {
+       [1] = "EyeColor"
+   },
+   [3] = dickfadeing,
+   [4] = "Body"
+}
+local dickargs = {
+   [1] = "customize",
+   [2] = {
+       [1] = "Nose",
+       [2] = "Pads"
+   },
+   [3] = dickfadeing,
+   [4] = "Body"
+}
+
+local bruhargs = {
+   [1] = "Accessories",
+   [2] = dickfadeing
+}
+      MS:FireServer(unpack(dickargs))
+      MS:FireServer(unpack(moreargs))
+      MS:FireServer(unpack(evenmoreargs))
+      MS:FireServer(unpack(args))
+      MS:FireServer(unpack(args2))
+      MS:FireServer(unpack(bruhargs))
+      wait()
+          end
+      end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Rainbow eyes",
+   CurrentValue = false,
+   Flag = "Toggle1", 
+   Callback = function(Value)
+      local broom = {
+         [1] = "Material",
+         [2] = "Neon",
+         [3] = {
+             [1] = "Pupils"
+         }
+     }
+     
+     game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(broom))
+     local broom2 = {
+      [1] = "Material",
+      [2] = "Neon",
+      [3] = {
+          [1] = "White"
+      }
+  }
+  
+  game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(broom2))
+  
+     
+      _G.stopex = Value
+
+      local MS = game:service('ReplicatedStorage').MasterKey
+      local spd = 6
+      while _G.stopex do
+      for i =  0,1,0.001*spd do
+      dickfadeing = Color3.fromHSV(i, 1, 1)
+      local args = {
+         [1] = "customize",
+         [2] = {
+             [1] = "White"
+         },
+         [3] = dickfadeing,
+         [4] = "Body"
+      }
+      local args2 = {
+         [1] = "customize",
+         [2] = {
+             [1] = "Pupils"
+         },
+         [3] = dickfadeing,
+         [4] = "Body"
+     }
+     local args3 = {
+      [1] = "customize",
+      [2] = {
+          [1] = "EyeColor"
+      },
+      [3] = dickfadeing,
+      [4] = "Body"
+  }
+      MS:FireServer(unpack(args))
+      MS:FireServer(unpack(args2))
+      MS:FireServer(unpack(args3))
+      wait()
+          end
+      end
+     
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Rainbow tounge (Suggestion by tobie)",
+   CurrentValue = false,
+   Flag = "Toggle1", 
+   Callback = function(Value)
+     
+_G.stopex = Value
+
+local MS = game:service('ReplicatedStorage').MasterKey
+local spd = 6
+while _G.stopex do
+for i =  0,1,0.001*spd do
+dickfadeing = Color3.fromHSV(i, 1, 1)
+local args = {
+   [1] = "customize",
+   [2] = {
+       [1] = "Toungue1"
+   },
+   [3] = dickfadeing,
+   [4] = "Body"
+}
+local args2 = {
+   [1] = "customize",
+   [2] = {
+       [1] = "Toungue2"
+   },
+   [3] = dickfadeing,
+   [4] = "Body"
+}
+MS:FireServer(unpack(args))
+MS:FireServer(unpack(args2))
+wait()
+    end
+end
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Fancy thing",
+   Callback = function()
+   -local Mat = "ForceField"
+   local Mat2 = "Neon"
+   
+   local SecondaryArgs={[1]="Material",[2]=Mat,[3]={[1]="DragonSecondary",[2]="OceanSecondary",[3]="DragonThird"}}
+   local PrimaryArgs={[1]="Material",[2]=Mat2,[3]={[1]="DragonPrimary",[2]="OceanPrimary"}}
+   --
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(SecondaryArgs))
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(PrimaryArgs))
+   
+   local args = {
+       [1] = "Material",
+       [2] = "ForceField",
+       [3] = {
+           [1] = "LeftWingStart"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   local args = {
+       [1] = "Material",
+       [2] = "ForceField",
+       [3] = {
+           [1] = "RightWing3"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   local args = {
+       [1] = "Material",
+       [2] = "ForceField",
+       [3] = {
+           [1] = "LeftWing3"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   local args = {
+       [1] = "Material",
+       [2] = "ForceField",
+       [3] = {
+           [1] = "RightWingStart"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   local args = {
+       [1] = "Material",
+       [2] = "ForceField",
+       [3] = {
+           [1] = "LeftWing2"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   local args = {
+       [1] = "Material",
+       [2] = "ForceField",
+       [3] = {
+           [1] = "RightWing2"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   local args = {
+       [1] = "Material",
+       [2] = "Neon",
+       [3] = {
+           [1] = "DragonPrimary"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   
+   -- add to oc auto
+   local args = {
+       [1] = "Material",
+       [2] = "Neon",
+       [3] = {
+           [1] = "Pupils"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   local args = {
+       [1] = "customize",
+       [2] = {
+           [1] = "Pupils"
+       },
+       [3] = Color3.new(0.942756, 0.942756, 0.942756),
+       [4] = "Body"
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+   local args = {
+       [1] = "Material",
+       [2] = "Neon",
+       [3] = {
+           [1] = "White"
+       }
+   }
+   
+   game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))   
+   end,
+})
+local Button = Tab:CreateButton({
+   Name = "Ghost wolf (Not finished)",
+   Callback = function()
+      local Mat = "ForceField"
+      local Hair = {[1] = "AccessoryMaterial",[2] = Mat,[3] = "HairF"}
+      local Torso = {[1] = "AccessoryMaterial",[2] = Mat,[3] = "TorsoF"}
+      local Legs = {[1] = "AccessoryMaterial",[2] = Mat,[3] = "FeetF"}
+      local SecondaryArgs = {[1]="Material",[2]=Mat,[3]={[1]="DragonSecondary",[2]="OceanSecondary",[3]="ChubbyCheeks",[4]="Fat",[5]="EarFluff",[6]="JawFluff",[7]="ChestFluff",[8]="LegFluff",[9]="Eyebrow1",[10]="Eyebrow2",[11]="Secondary",[12]="Jaw",[13]="RightShoulder",[14]="RightLowerLeg",[15]="RightLowerArm",[16]="RightLeg",[17]="RightFootPaw",[18]="LeftArm",[19]="LeftArmPaw",[20]="LeftCarpal",[21]="LeftFootPaw",[22]="LeftLeg",[23]="LeftLowerArm",[24]="LeftLowerLeg",[25]="LeftShoulder",[26]="RightArm",[27]="RightArmPaw",[28]="RightCarpal",[29]="DragonThird"}}
+      local PrimaryArgs = {[1]="Material",[2]=Mat,[3]={[1]="DragonPrimary",[2]="OceanPrimary",[3]="BackFluff",[4]="TailFluff",[5]="LeftWingStart",[6]="LeftWing2",[7]="LeftWing3",[8]="RightWingStart",[9]="RightWing2",[10]="RightWing3",[11]="EyeLid",[12]="Torso",[13]="Tail1",[14]="Tail2",[15]="Tail3",[16]="Tail5",[17]="Tail6",[18]="RightThigh",[19]="RightEar",[20]="EyeLid",[21]="Head",[22]="Hip",[23]="LeftEar",[24]="LeftThigh",[25]="Muzzle",[26]="Neck",[27]="NeckReal",[28]="Nose"}}
+      local Otherargs = {[1]="Material",[2]=Mat,[3]={[1]="InsideEars",[2] = "Tooth",[3] = "Toungue1",[4] = "Toungue2"}}     
+      
+      game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(Hair))
+      game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(Torso))
+      game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(Legs))
+      game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(SecondaryArgs))
+      game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(PrimaryArgs))
+      game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(Otherargs))
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Rudolph Nose",
+   Callback = function()
+      local args = {
+         [1] = "customize",
+         [2] = {
+             [1] = "Nose"
+            
+         },
+         [3] = Color3.new(0.978511, 0.0414006, 0.101632),
+         [4] = "Body"
+     }
+     
+     game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+     local args = {
+      [1] = "Material",
+      [2] = "Neon",
+      [3] = {
+          [1] = "Nose"
+      }
+  }
+  
+  game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+  
+     
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Rainbow Particle",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+     _G.stopex = Value
+      local MS = game:service('ReplicatedStorage').MasterKey
+      local spd = 6
+      while _G.stopex do
+      for i =  0,1,0.001*spd do
+      dickfadeing = Color3.fromHSV(i, 1, 1)
+      local args = {
+         [1] = "ColorParticle",
+         [2] = dickfadeing
+     }        
+      MS:FireServer(unpack(args))
+      wait()
+          end
+      end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Rainbow Nose",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      _G.stopex = Value
+
+local MS = game:service('ReplicatedStorage').MasterKey
+local spd = 6
+while _G.stopex do
+for i =  0,1,0.001*spd do
+dickfadeing = Color3.fromHSV(i, 1, 1)
+local args = {
+   [1] = "customize",
+   [2] = {
+       [1] = "Nose",
+       [2] = "Pads"
+   },
+   [3] = dickfadeing,
+   [4] = "Body"
+}
+MS:FireServer(unpack(args))
+wait()
+    end
+end
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Rainbow Rainbow Toes",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+
+      _G.stopex = Value
+
+      local MS = game:service('ReplicatedStorage').MasterKey
+      local spd = 6
+      while _G.stopex do
+      for i =  0,1,0.001*spd do
+      dickfadeing = Color3.fromHSV(i, 1, 1)
+      local args = {
+         [1] = "DragonClaws",
+         [2] = dickfadeing,
+         [3] = "Advanced"
+     }     
+      MS:FireServer(unpack(args))
+      wait()
+          end
+      end
+   end,
+})
+local Tab = Window:CreateTab("Teleports", 4483362458)
+local Button = Tab:CreateButton({
+   Name = "Comming soon",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+--comes last
+Rayfield:Notify({
+   Title = "Script loaded",
+   Content = "discord.gg/5w8fBu4XUx",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { 
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+-- remove when done so it doesn't load settings you used from before
+Rayfield:LoadConfiguration()
