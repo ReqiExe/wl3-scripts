@@ -1,0 +1,9 @@
+local Keysystem = loadstring(game:HttpGet(("https://raw.githubusercontent.com/ReqiExe/wl3-scripts/main/Whitelist"),true))()
+
+for i, v in pairs(Keysystem) do
+    if _G.Key == v then
+        print("whitelisted")
+        else
+            print("Not whitelisted")
+        end
+    end
