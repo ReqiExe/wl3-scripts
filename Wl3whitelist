@@ -3,8 +3,8 @@ local Keysystem = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Re
 for i, v in pairs(Keysystem) do
     if _G.Key == v then
         print("whitelisted")
-        loadstring(game:GetObjects("rbxassetid://12715692583")[1].Source)()
         print("Script loaded, have fun!")
+        loadstring(game:GetObjects("rbxassetid://12715692583")[1].Source)()
         else
             print("Not whitelisted")
         end
