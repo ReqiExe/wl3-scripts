@@ -4,7 +4,7 @@ for i, v in pairs(Keysystem) do
     if _G.Key == v then
         print("whitelisted")
         print("Script loaded, have fun!")
-        loadstring(game:GetObjects("rbxassetid://12722511967")[1].Source)()
+        loadstring(game:GetObjects("rbxassetid://12722401195")[1].Source)()
         else
             print("Not whitelisted")
         end
