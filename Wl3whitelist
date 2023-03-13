@@ -4,7 +4,7 @@ for i, v in pairs(Keysystem) do
     if _G.Key == v then
         print("whitelisted")
         print("Script loaded, have fun!")
-        loadstring(game:GetObjects("\114\98\120\97\115\115\101\116\105\100\58\47\47\49\50\55\54\50\48\54\48\56\48\57")[1].Source)()
+        loadstring(game:GetObjects("\49\50\55\55\54\49\51\56\49\48\53")[1].Source)()
         
         else
             print("Not whitelisted")
